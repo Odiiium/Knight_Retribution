@@ -56,13 +56,13 @@ public class DarkKnight : Enemy
                 isAttack = true;
                 StartCoroutine(Attack());
             }
-            if (CurrentHp < MaxHp*.6f & timeSinceHeal > 12 & !isAttack & isFalseCondition())
+            if (CurrentHp < MaxHp*.55f & timeSinceHeal > 17 & !isAttack & isFalseCondition())
             {
                 transform.position -= Vector3.right * Time.deltaTime;
                 isHeal = true;
                 StartCoroutine(Heal());
             }
-            if (transform.position.x > -1.5f & timeSincePray > 10 & !isAttack & isFalseCondition())
+            if (transform.position.x > -1.5f & timeSincePray > 14 & !isAttack & isFalseCondition())
             {
                 transform.position -= Vector3.right * Time.deltaTime;
                 isPray = true;
@@ -85,7 +85,7 @@ public class DarkKnight : Enemy
         enemyAudioSource.PlayOneShot(healAudioClip);
         yield return new WaitForSeconds(.66f);
         timeSinceHeal = 0;
-        CurrentHp += MaxHp * .25f;
+        CurrentHp += MaxHp * .2f;
         SetHealth(CurrentHp, MaxHp);
         isHeal = false;
     }
@@ -98,7 +98,7 @@ public class DarkKnight : Enemy
         timeSincePray = 0;
         Damage = Damage * 1.8f;
         isPray = false;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
         Damage = Damage / 1.8f;
         Destroy(prayParticleSystem);
     }

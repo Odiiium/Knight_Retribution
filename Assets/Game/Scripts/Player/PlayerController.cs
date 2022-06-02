@@ -58,12 +58,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Ground checking
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-            player.animator.SetBool("Grounded", isGrounded);
-        }
         //Getting a coin
         if (collision.gameObject.CompareTag("Coin"))
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class RedHood : Enemy
 {
-    private readonly int damage = 100;
+    private readonly int damage = 90;
     private readonly int maxHp = 850;
     private int attackCount = 0;
     private float timeSinceTeleport;
@@ -64,7 +64,7 @@ public class RedHood : Enemy
                 StartCoroutine(Attack());
                 isAttack = true;
             }
-            if (transform.position.x < -2 & isFalseCondition() & timeSinceTeleport > 2)
+            if (transform.position.x < -2 & isFalseCondition() & timeSinceTeleport > 16)
             {
                 StartCoroutine(Teleport());
                 isTeleport = true;
@@ -88,7 +88,7 @@ public class RedHood : Enemy
         yield return new WaitForSeconds(1);
         critText.transform.position = mainCamera.WorldToScreenPoint(transform.position + new Vector3(0, .5f, 0));
         critText.gameObject.SetActive(true);
-        player.currentHealth -= Damage * 2;
+        player.currentHealth -= Damage * 1.25f;
         isCriticalAttack = false;
         attackCount = 0;
         yield return new WaitForSeconds(1);
