@@ -67,10 +67,9 @@ public class PlayerController : MonoBehaviour
         //Getting a coin
         if (collision.gameObject.CompareTag("Coin"))
         {
-            player.money += SpawnManager.waveCount;
-            audioSource.PlayOneShot(moneySound, 0.85f * Sound.effectsVolume);
-            PlayerPrefs.SetInt("money", player.money);
+            PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money") + SpawnManager.waveCount);
             PlayerPrefs.Save();
+            audioSource.PlayOneShot(moneySound, 0.85f * Sound.effectsVolume);
             StartCoroutine(OnGetMoney());
             Destroy(collision.gameObject);
         }

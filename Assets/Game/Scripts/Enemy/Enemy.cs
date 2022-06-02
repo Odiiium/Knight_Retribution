@@ -301,7 +301,7 @@ public abstract class Enemy : MonoBehaviour
 
     internal IEnumerator BurnDamage()
     {
-        var fireParticle = Instantiate(Resources.Load<FireParticle>("Particles/FireParticle"), transform.position + new Vector3(0, .75f, 0), Resources.Load<FireParticle>("Particles/FireParticle").transform.rotation);
+        var fireParticle = Instantiate(Resources.Load<FireParticle>("Particles/FireParticle"), transform.position + new Vector3(0, 0.75f, 0), Resources.Load<FireParticle>("Particles/FireParticle").transform.rotation);
         fireParticle.particleIdentifier = 0;
         fireParticle.GetComponent<ParticleSystem>().Play();
         for (var i = 0; i < 3.0f; i++)

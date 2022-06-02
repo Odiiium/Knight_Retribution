@@ -77,6 +77,8 @@ public class Chest : MonoBehaviour
         PlayerPrefs.SetInt("manaPotionsCount", PlayerPrefs.GetInt("manaPotionsCount") + manaPotionsCount);
         PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money") + moneyCount);
         var playerUI = FindObjectOfType<PlayerUI>();
+        var playerController = FindObjectOfType<PlayerController>();
+        StartCoroutine(playerController.OnGetMoney());
         playerUI.hpPotionsCountText.text = "" + PlayerPrefs.GetInt("healthPotionsCount");
         playerUI.manaPotionsCountText.text = "" + PlayerPrefs.GetInt("manaPotionsCount");
         chestCanvas.SetActive(false);

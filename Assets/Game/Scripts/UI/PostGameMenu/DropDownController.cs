@@ -7,6 +7,12 @@ public class DropDownController : MonoBehaviour
     [SerializeField] GameObject[] charactersList;
     [SerializeField] GameObject lockPanel;
 
+
+    private void Start()
+    {
+        ChangeCharacter(SpawnManager.playerIndex);
+
+    }
     public void ChangeCharacter(int index)
     {
         switch (index)

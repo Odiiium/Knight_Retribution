@@ -45,19 +45,19 @@ public class PlayerUI : MonoBehaviour
         timeSinceUltimate += Time.deltaTime;
 
         SetCooldown(firstSpellCooldown, timeSinceFirstSpell, .4f);
-        SetCooldown(secondSpellCooldown, timeSinceSecondSpell, .4f);
+        SetCooldown(secondSpellCooldown, timeSinceSecondSpell, .2f);
         SetCooldown(ultimateSpellCooldown, timeSinceUltimate, .1f);
 
         healthText.SetText($"{Mathf.Round(player.currentHealth)}");
         manaText.SetText($"{Mathf.Round(player.currentMana)}");
         currentHealthImage.fillAmount = player.currentHealth / player.maxHealth;
         manaBar.value = player.currentMana;
-        moneyText.text = "" + player.money;
+        moneyText.text = "" + PlayerPrefs.GetInt("money");
     }
 
     public void LightStrike()
     {
-        if (player.currentMana > 35 & !PlayerController.isStuned & timeSinceSecondSpell > 2.5f)
+        if (player.currentMana > 35 & !PlayerController.isStuned & timeSinceSecondSpell > 5)
         {
             try
             {

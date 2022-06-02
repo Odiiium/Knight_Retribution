@@ -47,7 +47,7 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(WaitForEnvironmentSpawn());
         SpawnRandomEnemy();
         enemyCount = 1;
-        
+
     }
 
     private void Update()
